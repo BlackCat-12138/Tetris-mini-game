@@ -2,6 +2,8 @@
 
 A terminal-based Tetris game written in C++17, powered by [FTXUI](https://github.com/ArthurSonzogni/FTXUI).
 
+![Demonstration animation](example.gif)
+
 ## Features
 
 - All 7 standard pieces (I, O, T, S, Z, J, L) with 4 rotations each
