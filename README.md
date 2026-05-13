@@ -35,17 +35,52 @@ Level increases every 10 lines cleared. Drop speed increases from 800ms down to 
 
 ## Build
 
-Requirements:
-- CMake ≥ 3.20
-- A C++17 compiler (GCC, Clang, MSVC)
+### Requirements
+
+| Tool       | Minimum Version |
+| ---------- | --------------- |
+| CMake      | 3.20            |
+| C++ compiler | C++17 (GCC 8+, Clang 7+, MSVC 2019 16.8+) |
+
+FTXUI is fetched automatically via CMake FetchContent — no manual dependency installation needed.
+
+### Compile & Run
+
+**macOS / Linux**
 
 ```bash
-cmake -B build
+# 1. Configure (generate build system)
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+# 2. Compile
 cmake --build build
+
+# 3. Run
 ./build/tetris
 ```
 
-FTXUI is fetched automatically via CMake FetchContent — no manual dependency installation needed.
+**Windows (Developer Command Prompt / PowerShell)**
+
+```powershell
+# 1. Configure
+cmake -B build
+
+# 2. Compile
+cmake --build build --config Release
+
+# 3. Run
+.\build\Release\tetris.exe
+```
+
+> **Note:** On Windows, MSVC places the executable in a `Release` (or `Debug`) subdirectory by default. Use `--config Release` with `cmake --build` and run from the matching folder.
+
+### Build Options
+
+```bash
+# Debug build with Address Sanitizer (GCC/Clang)
+cmake -B build -DCMAKE_BUILD_TYPE=Debug -DENABLE_ASAN=ON
+cmake --build build
+```
 
 ## Project Structure
 
